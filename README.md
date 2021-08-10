@@ -22,7 +22,9 @@ The retention calculates the percentage of the users who use the product each da
 <img width="989" alt="Screen Shot 2021-08-10 at 2 28 03 PM" src="https://user-images.githubusercontent.com/14266201/128937506-05f5083b-abc6-451f-8b33-6804c700cce3.png">
 
 3 - Traffic Sources and User Analysis
+
 A - Daily Unique Actice Users per Source
+
 <img width="1039" alt="Screen Shot 2021-08-10 at 2 29 26 PM" src="https://user-images.githubusercontent.com/14266201/128937649-c8ab1a28-a328-4f11-9337-7cdf50602fc5.png">
 
 
