@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+    .vega-bindings {
+      text-align: left;
+      margin-top: 2em;
+    }
+    
+      .chart-wrapper {
+          width: 100%;
+          text-align: center;
+      }
+      
+      .vega-embed.has-actions {
+          width: 100% !important;
+      }
+
+      canvas.marks {
+    max-width: 100%!important;
+    height: auto!important;
+    }
+      
+    @media only screen and (max-width: 844px) {
+        .col-xs-12.first-chart {
+           height: 200px !important;
+        }
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.0.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "axis": {"gridOpacity": 0.6}, "axisX": {"grid": false, "labelFontSize": 10, "titleColor": "dimgray", "titleFont": "Helvetica Sans", "titleFontSize": 16, "titleY": 50}, "axisY": {"labelFontSize": 10, "labelPadding": 10, "titleColor": "dimgray", "titleFont": "Helvetica Sans", "titleFontSize": 16, "titleX": -60}, "legend": {"labelColor": "k", "labelFontSize": 12}, "title": {"color": "dimgrey", "dy": -5, "font": "Helvetica Sans", "fontSize": 18}}, "layer": [{"mark": {"type": "bar", "size": 10}, "encoding": {"color": {"type": "nominal", "field": "isRegistered", "legend": {"title": ""}}, "order": {"type": "nominal", "field": "isRegistered", "sort": "ascending"}, "tooltip": [{"type": "nominal", "field": "Date", "title": "Date"}, {"type": "quantitative", "field": "tot", "title": "Total Users"}, {"type": "quantitative", "field": "count_true", "title": "Registered Users"}, {"type": "quantitative", "field": "count_false", "title": "Non Registered Users"}], "x": {"type": "ordinal", "axis": {"labelAngle": 90, "title": "Date"}, "field": "Date"}, "y": {"type": "quantitative", "field": "uid", "title": "Daily Active Users"}}, "height": 300, "title": ["Daily Active Users", "February 2016"], "transform": [{"joinaggregate": [{"op": "sum", "field": "uid", "as": "tot"}, {"op": "max", "field": "uid", "as": "count_true"}], "groupby": ["Date"]}, {"calculate": "datum.tot - datum.count_true", "as": "count_false"}], "width": 600}], "data": {"name": "data-4c3f8e8ca147a065e011ca4ab14dbfe5"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-4c3f8e8ca147a065e011ca4ab14dbfe5": [{"date": "2016-02-01T00:00:00", "isRegistered": "Non Registered", "uid": 22358, "Date": "Feb 01"}, {"date": "2016-02-01T00:00:00", "isRegistered": "Registered", "uid": 90146, "Date": "Feb 01"}, {"date": "2016-02-02T00:00:00", "isRegistered": "Non Registered", "uid": 22041, "Date": "Feb 02"}, {"date": "2016-02-02T00:00:00", "isRegistered": "Registered", "uid": 90276, "Date": "Feb 02"}, {"date": "2016-02-03T00:00:00", "isRegistered": "Non Registered", "uid": 22131, "Date": "Feb 03"}, {"date": "2016-02-03T00:00:00", "isRegistered": "Registered", "uid": 90931, "Date": "Feb 03"}, {"date": "2016-02-04T00:00:00", "isRegistered": "Non Registered", "uid": 21598, "Date": "Feb 04"}, {"date": "2016-02-04T00:00:00", "isRegistered": "Registered", "uid": 89500, "Date": "Feb 04"}, {"date": "2016-02-05T00:00:00", "isRegistered": "Non Registered", "uid": 19824, "Date": "Feb 05"}, {"date": "2016-02-05T00:00:00", "isRegistered": "Registered", "uid": 82596, "Date": "Feb 05"}, {"date": "2016-02-06T00:00:00", "isRegistered": "Non Registered", "uid": 18241, "Date": "Feb 06"}, {"date": "2016-02-06T00:00:00", "isRegistered": "Registered", "uid": 76566, "Date": "Feb 06"}, {"date": "2016-02-07T00:00:00", "isRegistered": "Non Registered", "uid": 19749, "Date": "Feb 07"}, {"date": "2016-02-07T00:00:00", "isRegistered": "Registered", "uid": 84426, "Date": "Feb 07"}, {"date": "2016-02-08T00:00:00", "isRegistered": "Non Registered", "uid": 21978, "Date": "Feb 08"}, {"date": "2016-02-08T00:00:00", "isRegistered": "Registered", "uid": 92824, "Date": "Feb 08"}, {"date": "2016-02-09T00:00:00", "isRegistered": "Non Registered", "uid": 22043, "Date": "Feb 09"}, {"date": "2016-02-09T00:00:00", "isRegistered": "Registered", "uid": 93816, "Date": "Feb 09"}, {"date": "2016-02-10T00:00:00", "isRegistered": "Non Registered", "uid": 22110, "Date": "Feb 10"}, {"date": "2016-02-10T00:00:00", "isRegistered": "Registered", "uid": 95003, "Date": "Feb 10"}, {"date": "2016-02-11T00:00:00", "isRegistered": "Non Registered", "uid": 21601, "Date": "Feb 11"}, {"date": "2016-02-11T00:00:00", "isRegistered": "Registered", "uid": 93689, "Date": "Feb 11"}, {"date": "2016-02-12T00:00:00", "isRegistered": "Non Registered", "uid": 19948, "Date": "Feb 12"}, {"date": "2016-02-12T00:00:00", "isRegistered": "Registered", "uid": 86184, "Date": "Feb 12"}, {"date": "2016-02-13T00:00:00", "isRegistered": "Non Registered", "uid": 18312, "Date": "Feb 13"}, {"date": "2016-02-13T00:00:00", "isRegistered": "Registered", "uid": 79476, "Date": "Feb 13"}, {"date": "2016-02-14T00:00:00", "isRegistered": "Non Registered", "uid": 19889, "Date": "Feb 14"}, {"date": "2016-02-14T00:00:00", "isRegistered": "Registered", "uid": 86269, "Date": "Feb 14"}, {"date": "2016-02-15T00:00:00", "isRegistered": "Non Registered", "uid": 22209, "Date": "Feb 15"}, {"date": "2016-02-15T00:00:00", "isRegistered": "Registered", "uid": 97200, "Date": "Feb 15"}, {"date": "2016-02-16T00:00:00", "isRegistered": "Non Registered", "uid": 22657, "Date": "Feb 16"}, {"date": "2016-02-16T00:00:00", "isRegistered": "Registered", "uid": 98217, "Date": "Feb 16"}, {"date": "2016-02-17T00:00:00", "isRegistered": "Non Registered", "uid": 22736, "Date": "Feb 17"}, {"date": "2016-02-17T00:00:00", "isRegistered": "Registered", "uid": 99317, "Date": "Feb 17"}, {"date": "2016-02-18T00:00:00", "isRegistered": "Non Registered", "uid": 22216, "Date": "Feb 18"}, {"date": "2016-02-18T00:00:00", "isRegistered": "Registered", "uid": 98158, "Date": "Feb 18"}, {"date": "2016-02-19T00:00:00", "isRegistered": "Non Registered", "uid": 20774, "Date": "Feb 19"}, {"date": "2016-02-19T00:00:00", "isRegistered": "Registered", "uid": 91678, "Date": "Feb 19"}, {"date": "2016-02-20T00:00:00", "isRegistered": "Non Registered", "uid": 19121, "Date": "Feb 20"}, {"date": "2016-02-20T00:00:00", "isRegistered": "Registered", "uid": 85544, "Date": "Feb 20"}, {"date": "2016-02-21T00:00:00", "isRegistered": "Non Registered", "uid": 21797, "Date": "Feb 21"}, {"date": "2016-02-21T00:00:00", "isRegistered": "Registered", "uid": 98509, "Date": "Feb 21"}, {"date": "2016-02-22T00:00:00", "isRegistered": "Non Registered", "uid": 23845, "Date": "Feb 22"}, {"date": "2016-02-22T00:00:00", "isRegistered": "Registered", "uid": 106172, "Date": "Feb 22"}, {"date": "2016-02-23T00:00:00", "isRegistered": "Non Registered", "uid": 23948, "Date": "Feb 23"}, {"date": "2016-02-23T00:00:00", "isRegistered": "Registered", "uid": 107759, "Date": "Feb 23"}, {"date": "2016-02-24T00:00:00", "isRegistered": "Non Registered", "uid": 23821, "Date": "Feb 24"}, {"date": "2016-02-24T00:00:00", "isRegistered": "Registered", "uid": 108126, "Date": "Feb 24"}, {"date": "2016-02-25T00:00:00", "isRegistered": "Non Registered", "uid": 23639, "Date": "Feb 25"}, {"date": "2016-02-25T00:00:00", "isRegistered": "Registered", "uid": 106695, "Date": "Feb 25"}, {"date": "2016-02-26T00:00:00", "isRegistered": "Non Registered", "uid": 21995, "Date": "Feb 26"}, {"date": "2016-02-26T00:00:00", "isRegistered": "Registered", "uid": 98663, "Date": "Feb 26"}, {"date": "2016-02-27T00:00:00", "isRegistered": "Non Registered", "uid": 20350, "Date": "Feb 27"}, {"date": "2016-02-27T00:00:00", "isRegistered": "Registered", "uid": 92439, "Date": "Feb 27"}, {"date": "2016-02-28T00:00:00", "isRegistered": "Non Registered", "uid": 22979, "Date": "Feb 28"}, {"date": "2016-02-28T00:00:00", "isRegistered": "Registered", "uid": 105117, "Date": "Feb 28"}, {"date": "2016-02-29T00:00:00", "isRegistered": "Non Registered", "uid": 25165, "Date": "Feb 29"}, {"date": "2016-02-29T00:00:00", "isRegistered": "Registered", "uid": 113479, "Date": "Feb 29"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

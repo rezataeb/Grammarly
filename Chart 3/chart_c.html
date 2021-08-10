@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+     .vega-bindings {
+      text-align: left;
+      margin-top: 2em;
+    }
+    
+      .chart-wrapper {
+          width: 100%;
+          text-align: center;
+      }
+      
+      .vega-embed.has-actions {
+          width: 100% !important;
+      }
+
+      canvas.marks {
+    max-width: 100%!important;
+    height: auto!important;
+    }
+      
+    @media only screen and (max-width: 844px) {
+        .col-xs-12.first-chart {
+           height: 200px !important;
+        }
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.0.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "axis": {"gridOpacity": 0.6}, "axisX": {"grid": false, "labelFontSize": 10, "titleColor": "dimgray", "titleFont": "Helvetica Sans", "titleFontSize": 12, "titleY": 30}, "axisY": {"labelFontSize": 10, "labelPadding": 5, "titleColor": "dimgray", "titleFont": "Helvetica Sans", "titleFontSize": 12, "titleX": -50}, "legend": {"labelFontSize": 12, "titleColor": "dimgray"}, "title": {"color": "dimgrey", "dy": -5, "font": "Helvetica Sans", "fontSize": 14}}, "layer": [{"mark": {"type": "bar", "size": 60}, "encoding": {"color": {"type": "ordinal", "field": "Cohort", "legend": null, "scale": {"domain": ["4th Feb", "10th Feb", "14th Feb"], "range": ["#8c144a", "#4147d0", "#476108"]}}, "tooltip": [{"type": "nominal", "field": "Cohort", "title": "Cohort"}, {"type": "quantitative", "field": "Size", "title": "Total Users"}], "x": {"type": "ordinal", "axis": {"labelAngle": 0, "title": "Cohort"}, "field": "Cohort", "sort": ["4th Feb", "10th Feb", "14th Feb"]}, "y": {"type": "quantitative", "field": "Size", "title": "Size"}}, "height": 220, "title": ["Cohort Total Users", "February 2016"], "width": 400}], "data": {"name": "data-c242d0c3a6efadff4b2536302116778f"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.0.0.json", "datasets": {"data-c242d0c3a6efadff4b2536302116778f": [{"Size": 2735, "Cohort": "4th Feb"}, {"Size": 3129, "Cohort": "10th Feb"}, {"Size": 2761, "Cohort": "14th Feb"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
