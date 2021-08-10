@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head id="head">
+  <title> Ping Analysis | Reza Taeb</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Site to analysis Grammarly Performance">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="CSS/MainStyle.css" type="text/css" rel="stylesheet">
+  <link href="CSS/swiper.min.css" type="text/css" rel="stylesheet">
+  <link href="CSS/Bootstrap_en.css" type="text/css" rel="stylesheet">
+  <link href="CSS/Helper.css" type="text/css" rel="stylesheet">
+  <link href="CSS/Icons.css" type="text/css" rel="stylesheet">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="LTR Gecko Gecko25 ENUS ContentBody">
+  <header class="header">
+    <div class="container-fluid footer-container">
+      <div class="email">
+        <a href="mailto: taeb.reza@gmail.com"> <img src="Images/email.png" alt="email" title="Email"></a>
+      </div>
+      <div class="linkedin">
+        <a target="_blank" href="https://www.linkedin.com/in/reza-taeb/"><img src="Images/linkedin.png" alt="linkedin"
+            title="Linkedin"></a>
+      </div>
+      <div class="github">
+        <a target="_blank" href="https://github.com/rezataeb/Grammarly"><img src="Images/github.png" alt="github"
+            title="Github"></a>
+      </div>
+    </div>
+  </header>
+  <div class="main-container">
+    <div class="main-image-container">
+      <div class="main-image"><img src="Images/background.jpeg" alt="background"></div>
+      <div class="overlay">
+        <div class="image-title">
+          <h1><span style="white-space:nowrap">DAU, Retention Curve, User and Source Analysis<br></span>Grammarly -
+            Febrauary 2016</h1>
+          <p>Designed by Reza Taeb</p>
+          <p>June 2021</p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="col-xs-12 first">
+        <div class="col-xs-12 first-chart-desc">
+          <div class="well well-lg">
+            <p style="text-align: justify;">On this page, I investigated app/product performance from various aspects
+              such as the daily active user(DAU), retention curve, traffic source, and user analysis.
+              The original dataset consists of around 4.8 million rows with 5 columns (date, timestamp, uid, utmSource,
+              isFirst). The only attribute with NaN entires is ‘utmSource’ (1674386 NaN).<br>
+
+              Before jumping into the main parts of the analysis, some initial investigations and pre processing were
+              taken.
+
+            </p>
+
+            <ul>
+              <li>Sort Based on Timestamp</li>
+              <li>Remove Duplicates</li>
+              <li>Remove [date/timestamp/uid] Combination Duplicates</li>
+              <li>Handle Entires with More than One ‘isFirst’</li>
+              <li>Check the Entries with Delayed First Time Occurrence Recorded </li>
+              <li>Source Names Correction and Modification(this will be done at question three)</li>
+            </ul> 
+
+            <br>
+            <p style="font-size:20px; text-align:justify;"><b>Question 1 : Daily Active Users (DAU)</p></b>
+            <p style="text-align: justify;"> The number of daily active users is a vital metric for business. The main
+              goal of a business should be
+              growth. DAU and its trend show how a product is successful in its growth path. While DAU has a
+              straightforward definition, it can be seen and calculated on different segments of the users. </p>
+
+          </div>
+        </div>
+        <div class="col-xs-12 first-chart container-chart">
+          <iframe src="Chart%201/chart_a.html" height="100%" width="100%" title="chart1"></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 secont">
+        <div class="col-xs-12 sec-chart-desc">
+          <div class="well well-lg">
+            <p style="text-align: justify;">DAU is defined for the number of <b>unique users</b>. Therefore, it’s
+              essential to
+              make sure that some users are not counted more than once. To do so, I grouped the DataFrame by date and
+              counted the number of unique ids (.nunique method). <br><br>
+              As I mentioned, the DAU also can be seen based on a specific feature. I created a new column as
+              <b>isRegistered</b>, based on the ‘uid’ column. It would be helpful to see what portion of the daily users
+              are registered and what portion is not registered. <br><br>
+              As the above chart shows, the DAU for all users is increased by <b>23.2%</b> over this month, Febrauray
+              2016. Also DAU is growing clearly in registered categories <b>25.8%</b>, although non-registered users'
+              growth rate <b>12.5%</b> is very low compared to the registered group. One other interesting detail is
+              that
+              both registered and non-registered categories follow weekly cycles (with lower DAU on weekends)
+            </p><br>
+
+            <p style="font-size: 20px; text-align: justify;"><b>Question 2 : Retention Curve Across Various Cohorts</b>
+            </p>
+            <p style="text-align: justify;"> The retention calculates the percentage of the users who use the
+              product each day. The retention curve can help the business how they are doing in total regarding their
+              initial user attraction. Retention/churn calculation is an excellent way to calculate and visualize the
+              life cycle of users. </p>
+
+          </div>
+        </div>
+        <div class="col-xs-12 second-chart container-chart">
+          <iframe src="Chart%202/chart_b2.html" height="100%" width="100%" title="chart2"></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 third">
+        <div class="col-xs-12 sec-chart-desc">
+          <div class="well well-lg">
+            <p style="text-align: justify;">For this specific exercise, the retention curve is
+              calculated for three certain cohorts: Feb 4th, Feb 10th, and Feb 14th.
+              According to the above heatmap, all cohorts show relatively similar behavior regarding the cohort life
+              cycle. All cohorts show very deep decrease(~40-45%) in retention on the first day. This tells us that
+              around half of the users do not have a good experience on their first day. Also for all cohorts, the
+              weekly low retention percentage is Saturday. <br>
+              If you look closer, it seems that cohort 10th and 14th February worked more successfully to keep their
+              users throughout the month. However, before jumping to the conclusion, we need to investigate the cohorts'
+              users deeper. Some factors such as traffic sources, user devices, and so on may explain this difference
+              across cohorts. Also, it is good to track the app updates timeline. The other possible reason could be
+              some updates during 4th and 10th Feb. </p>
+          </div>
+        </div>
+        <div class="col-xs-12 third-chart container-chart">
+          <iframe src="Chart%203/chart_c.html" height="100%" width="100%" title="chart2"></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 fourth">
+
+        <div class="col-xs-12 fourth-chart container-chart">
+          <iframe src="Chart%204/chart_c2.html" height="100%" width="100%" title="chart2"></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 fifth">
+        <div class="col-xs-12 sec-chart-desc">
+          <div class="well well-lg">
+            <p style="text-align: justify;">Cohorts 4th and 14th Feb have an almost identical number of users (~2700),
+              while cohort 10th Feb has around 15% more users. This increase from the past week should be explored more
+              carefully since the number of users for cohort 14th Feb returned to the number of cohort 4th Feb. I
+              suspect that there was a marketing campaign during the days before 10th Feb. The last point that we need
+              to pay attention to is the starting day of each cohort. The first two cohorts started in the middle of the
+              week, but the cohort 14th Feb begun on the weekend, and maybe that was why the initial number of users is
+              lower than cohort 10th Feb. </p><br><br>
+            <p style="font-size: 20px; text-align: justify;"><b>Question 3 : Traffic Sources and User Analysis</b></p>
+            <p style="text-align: justify;">In this part, several metrics are defined to identify the best traffic
+              sources and users. Before starting source analysis, the name of sources should be cleaned and modified
+              using regex. For instance, twitter and Twitter_org should be combined. </p>
+            <p style="font-size: 15px; text-align: justify;"><b> A - Daily Unique Actice Users per Source</b></p>
+            <p style="text-align: justify;">The first metric for analyzing the sources is <b> Daily Unique Active Users
+                per Sources </b>. This metric is valuable because it shows the power of each source as the gate for our
+              product. <br><br>
+              First, I need to make sure that each user just used one source to come into our app each day. Therefore, I
+              grouped the data frame by combining date and user id and counting unique sources. There are 1002 out of
+              around 3.3 million cases (0.03%) that users used more than one source in some days. So I dropped these
+              rows.
+
+              For calculating this metric, I grouped the DataFrame by combining date and source and then counting the
+              number of unique user ids. Some sources have a minimal number of users. The average daily unique users for
+              all sources is around 116098. So I assign the threshold as 580 (~0.5%) of the daily users to filter out
+              some sources that do not bring much value for our business. After all, I came up with 11 unique sources
+              (including one group as “NA”) that make most of our traffic sources.
+              The below chart shows that all top sources show a relatively slight uptrend. 4 sources that bring more
+              than 80% of our daily traffic are: “biznesow rewolujce” , “NA”, “answers” and “program”.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 fifth-chart container-chart">
+          <iframe src="Chart%205/chart_d.html" height="100%" width="100%" title="chart2"></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 sixth">
+        <div class="col-xs-12 sec-chart-desc">
+          <div class="well well-lg">
+            <p style="font-size: 15px; text-align: justify;"><b> B - Daily User Activity Distribution per Source</b></p>
+            <p style="text-align: justify;">The other insightful metric can be the “Daily User Activity Distribution”
+              for each source. This metric shows that from all users of a source, what portion use the app more
+              frequently. In other words, this metric shows how consistent users are in their usage of the application
+              through the month. We value the sources that have a peak close to the full month (29 days).
+              To calculate this metric, I grouped the data frame by user id and source and counted the number of unique
+              days. The result shows the number of activity days for each user using a certain traffic source. Finally,
+              I grouped the output data frame per number of days and source, counted the number of users, and calculated
+              the percentage of the total number of days entries for each source.
+              The below chart demonstrates the user activity distribution per source. The top 5 sources that have
+              relatively better activity and have a local peak around the right end of the graph are : “shmoop”,
+              “salesmango”, “twitter”, ”program” and “grub street”.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 sixth-chart contain er-chart">
+          <iframe src="Chart%206/chart_e.html" height="100%" width="100%" title="chart2"></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 seventh">
+        <div class="col-xs-12 sec-chart-desc">
+          <div class="well well-lg">
+            <p style="font-size: 15px; text-align: justify;"><b> C - User Analysis - Average Daily Ping</b></p>
+            <p style="text-align: justify;">In order to analyze the best and worst users, certain metrics should be
+              defined. Again, these metrics may vary from business to business and based on the significant goals of the
+              company. For the sake of the project, I am defining metrics based on my insight and perception.
+              "Average Daily Ping" can be a good metric. This shows to what extent each user is involved in our
+              business.
+              To calculate this metric, I need to group the df per day and user id and count the occurrence (timestamp
+              can be used to count the occurrence). Then the output df should be grouped per user id and calculate the
+              mean based on the total days. <br>
+              Initial investigation showed that almost 83% of the top 1000 users came from “NA” source. Excluding NA top
+              users with ‘NA’ source showed that “biznesowe rewolucje”, “program”, “shmoop”, and “twitter” brings most
+              of the top users.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 eighth">
+        <div class="col-xs-12 eighth-chart container-chart">
+          <iframe src="Chart%208/chart_g.html" height="100%" width="100%" title="chart2"></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 sec-chart-desc">
+        <div class="well well-lg">
+          <p style="font-size: 20px; text-align: justify;"><b> Summary and Final Thoughts</b></p>
+          <p style="text-align: justify;">Analysis of user and traffic source behavior may have a complicated path and
+            structure. A wide range of metrics can be investigated based on the business life stage, strategy, and
+            mission. The business may want to be more inclusive and bring in more people from more traffic sources or be
+            more focused and focused more on top users and specific traffic sources.
+            Regarding Grammarly, I perceive it wants to be more inclusive; therefore, we should pay more attention to
+            DAU. Based on our analysis, almost half of the first users did not continue to use our product after the
+            first day. We can conclude that we need to work more on users' boarding experiences. The additional insight
+            that could be helpful in this regard can be analyzing the unsatisfied first users, check the traffic source
+            and the features that they mostly used on their first experience.
+            Also, it would be great to check whether the non-satisfied users vary across user devices and platforms or
+            not. For instance, maybe the product lacks is not very user-friendly in specific operating systems.
+            The other good area worth investigating is exploring the sources that have a high churning degree for first
+            time users. Studying users from these sources may help us find some potential to grow.</p><br>
+
+          <p>*Code of this report is accessible through the github link on top left side of this page.</p>  
+
+
+        </div>
+
+      </div>
+    </div>
+    <footer class="footer">
+      <p>Designed by Reza Taeb</p>
+    </footer>
+</body>
+
+</html>
