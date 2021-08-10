@@ -27,3 +27,8 @@ A - Daily Unique Actice Users per Source
 
 
 B - Daily User Activity Distribution per Source
+
+<img width="1033" alt="Screen Shot 2021-08-10 at 2 31 38 PM" src="https://user-images.githubusercontent.com/14266201/128937892-d25bd85c-bf51-4371-afa0-bb56cb0578fc.png">
+
+<img width="683" alt="Screen Shot 2021-08-10 at 2 31 56 PM" src="https://user-images.githubusercontent.com/14266201/128937914-ec740158-4f11-4e04-a62a-14adf84ed9a7.png">
+
