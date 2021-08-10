@@ -17,7 +17,9 @@ The retention calculates the percentage of the users who use the product each da
 
 <img width="964" alt="Screen Shot 2021-08-10 at 2 25 57 PM" src="https://user-images.githubusercontent.com/14266201/128937257-dd9beaaa-1e07-4a80-853c-da69d5cd1eb0.png">
 
+
 <img width="483" alt="Screen Shot 2021-08-10 at 2 27 45 PM" src="https://user-images.githubusercontent.com/14266201/128937490-e91244ee-fbdd-4ce2-addd-56ac238fbac5.png">
+
 
 <img width="989" alt="Screen Shot 2021-08-10 at 2 28 03 PM" src="https://user-images.githubusercontent.com/14266201/128937506-05f5083b-abc6-451f-8b33-6804c700cce3.png">
 
@@ -30,7 +32,9 @@ A - Daily Unique Actice Users per Source
 
 B - Daily User Activity Distribution per Source
 
-<img width="1033" alt="Screen Shot 2021-08-10 at 2 31 38 PM" src="https://user-images.githubusercontent.com/14266201/128937892-d25bd85c-bf51-4371-afa0-bb56cb0578fc.png">
+<img width="1047" alt="Screen Shot 2021-08-10 at 2 34 21 PM" src="https://user-images.githubusercontent.com/14266201/128938125-74246cfb-9ecf-4ca1-8b75-4773680d59ff.png">
 
-<img width="683" alt="Screen Shot 2021-08-10 at 2 31 56 PM" src="https://user-images.githubusercontent.com/14266201/128937914-ec740158-4f11-4e04-a62a-14adf84ed9a7.png">
+
+<img width="1044" alt="Screen Shot 2021-08-10 at 2 33 58 PM" src="https://user-images.githubusercontent.com/14266201/128938139-d2ca4d13-2242-458a-9b79-d3207afed45f.png">
+
 
