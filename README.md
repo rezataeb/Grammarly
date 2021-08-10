@@ -27,14 +27,13 @@ The retention calculates the percentage of the users who use the product each da
 
 A - Daily Unique Actice Users per Source
 
-<img width="1039" alt="Screen Shot 2021-08-10 at 2 29 26 PM" src="https://user-images.githubusercontent.com/14266201/128937649-c8ab1a28-a328-4f11-9337-7cdf50602fc5.png">
-
+<img width="1047" alt="Screen Shot 2021-08-10 at 2 34 21 PM" src="https://user-images.githubusercontent.com/14266201/128938125-74246cfb-9ecf-4ca1-8b75-4773680d59ff.png">
 
 B - Daily User Activity Distribution per Source
 
-<img width="1047" alt="Screen Shot 2021-08-10 at 2 34 21 PM" src="https://user-images.githubusercontent.com/14266201/128938125-74246cfb-9ecf-4ca1-8b75-4773680d59ff.png">
-
 
 <img width="1044" alt="Screen Shot 2021-08-10 at 2 33 58 PM" src="https://user-images.githubusercontent.com/14266201/128938139-d2ca4d13-2242-458a-9b79-d3207afed45f.png">
+
+<img width="669" alt="Screen Shot 2021-08-10 at 2 36 29 PM" src="https://user-images.githubusercontent.com/14266201/128938329-bf7e0da8-733c-4573-8756-2fc25cbc371e.png">
 
 
